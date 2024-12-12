@@ -83,11 +83,10 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: &primary_production
-    <<: *default
-    database: postgres
-    username: postgres
-    password: 0
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   cache:
     <<: *primary_production
     database: mapapp_production_cache
