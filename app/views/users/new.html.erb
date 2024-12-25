@@ -1,22 +1,23 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_with model: @user do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation %>
-
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
-    <% end %>
+<%= form_with model: @user, class: "w-full max-w-sm mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" do |f| %>
+  <div class="mb-4">
+    <%= f.label :name, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.text_field :name, class: "mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
   </div>
-</div>
+
+  <div class="mb-4">
+    <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.email_field :email, class: "mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
+    <%= f.password_field :password, class: "mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :password_confirmation, "Confirmation", class: "block text-sm font-medium text-gray-700" %>
+    <%= f.password_field :password_confirmation, class: "mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" %>
+  </div>
+
+  <%= f.submit "Create my account", class: "inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+<% end %>
