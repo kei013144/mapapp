@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_25_131559) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_12_030600) do
   create_schema "pgagent"
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "adminpack"
-  enable_extension "pgagent"
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.adminpack"
+  enable_extension "pg_catalog.plpgsql"
+  enable_extension "pgagent.pgagent"
 
   create_table "users", force: :cascade do |t|
     t.string "name"
