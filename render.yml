@@ -1,5 +1,5 @@
 databases:
-  - name: mapapp_database
+  - name: mapapp
     databaseName: mapapp_database
     user: mapapp
     region: singapore
