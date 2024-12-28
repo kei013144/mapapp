@@ -25,9 +25,9 @@ gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
-#gem "solid_cache"
-#gem "solid_queue"
-#gem "solid_cable"
+# gem "solid_cache"
+# gem "solid_queue"
+# gem "solid_cable"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -65,4 +65,4 @@ end
 
 gem "tailwindcss-rails", "~> 3.0"
 
-gem 'stringio', '~> 3.1'
+gem "stringio", "~> 3.1"

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       log_in(@user)
       redirect_to user_url(@user)
     else
-      render 'new'
+      render "new"
     end
   end
 
