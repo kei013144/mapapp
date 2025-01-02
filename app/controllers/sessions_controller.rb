@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       log_in user
-      redirect_to map_path, notice: 'ログインに成功しました'
+      redirect_to map_path, notice: "ログインに成功しました"
     else
       flash.now[:alart] = "Invalid email/password combination"
       render "new"
