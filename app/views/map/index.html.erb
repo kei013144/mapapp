@@ -1,0 +1,49 @@
+<div id='map'></div>
+
+<style>
+#map {
+  height: 100vh;
+  width: 100vw;
+}
+</style>
+
+<script>
+let map
+
+function initMap() {
+  geocoder = new google.maps.Geocoder();
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: { lat: 40.7828, lng: -73.9653 },
+    zoom: 12,
+  });
+
+  // Create the marker
+  marker = new google.maps.Marker({
+    position: { lat: 40.7828, lng: -73.9653 },
+    map: map,
+  });
+
+  // Create the info window content
+  const contentString = `
+<div id="content">
+  <form>
+  <input type="text" id="body" name="body" class="w-full p-2 border border-gray-300 rounded-md">
+  <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded">送信</button>
+  </form>
+</div>`;
+
+  // Create the info window
+  const infoWindow = new google.maps.InfoWindow({
+    content: contentString,
+    maxWidth: 200,
+  });
+
+  // Add click listener to marker to open the info window
+  marker.addListener('click', function() {
+    infoWindow.open(map, marker);
+  });
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>

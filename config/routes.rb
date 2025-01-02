@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   post   "/login",   to: "sessions#create"
   delete "/logout",  to: "sessions#destroy"
   get "/logout",  to: "sessions#destroy"
+  get "/map", to: "map#index"
   resources :users
-  resources :sessions
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
