@@ -8,40 +8,47 @@
 </style>
 
 <script>
-let map
+let map;
+let infoWindows = [];
+
+function closeAllInfoWindows() {
+  for (let i = 0; i < infoWindows.length; i++) {
+    infoWindows[i].close();
+  }
+}
 
 function initMap() {
   geocoder = new google.maps.Geocoder();
 
   map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: 40.7828, lng: -73.9653 },
-    zoom: 12,
+    center: { lat: 35.68128415327956, lng: 139.76676039246024 },
+    zoom: 16,
   });
 
-  // Create the marker
-  marker = new google.maps.Marker({
-    position: { lat: 40.7828, lng: -73.9653 },
-    map: map,
-  });
+  const shops = <%= raw @shops.to_json %>;
 
-  // Create the info window content
-  const contentString = `
-<div id="content">
-  <form>
-  <textarea id="body" name="body" class="w-full p-2 border border-gray-300 rounded-md" rows="5"></textarea>
-  <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded">送信</button>
-  </form>
-</div>`;
+  shops.forEach(shop => {
+    // Create the marker
+    marker = new google.maps.Marker({
+      position: { lat: shop.latitude, lng: shop.longitude },
+      map: map,
+    });
 
-  // Create the info window
-  const infoWindow = new google.maps.InfoWindow({
-    content: contentString,
-    maxWidth: 500,
-  });
+    // Create the info window content
+    const infoWindowContent = `<%= render "content_window" %>`;
 
-  // Add click listener to marker to open the info window
-  marker.addListener('click', function() {
-    infoWindow.open(map, marker);
+    // Create the info window
+    const infoWindow = new google.maps.InfoWindow({
+      content: infoWindowContent,
+      maxWidth: 800,
+    });
+    infoWindows.push(infoWindow);
+
+    // Add click listener to marker to open the info window
+    marker.addListener('click', function() {
+      closeAllInfoWindows();
+      infoWindow.open(map, marker);
+    });
   });
 }
 
