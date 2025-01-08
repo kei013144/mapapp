@@ -37,3 +37,9 @@
     left: 50%; 
     transform: translateX(-50%);
   }
+
+  #map {
+    height: 100vh;
+    width: 100vw;
+  }
+  
