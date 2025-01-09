@@ -18,12 +18,10 @@ function initMap() {
     zoom: 16,
   });
 
-  const shops = <%= raw @shops.to_json %>;
-
-  shops.forEach(shop => {
+  <% @shops.each do |shop| %>
     // Create the marker
     marker = new google.maps.Marker({
-      position: { lat: shop.latitude, lng: shop.longitude },
+      position: { lat: <%= shop.latitude %>, lng: <%= shop.longitude %> },
       map: map,
     });
 
@@ -42,7 +40,7 @@ function initMap() {
       closeAllInfoWindows();
       infoWindow.open(map, marker);
     });
-  });
+  <% end %>
 }
 
 </script>
