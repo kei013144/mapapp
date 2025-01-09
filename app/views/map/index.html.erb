@@ -18,20 +18,22 @@ function initMap() {
     zoom: 16,
   });
 
-  const shops = <%= raw @shops.to_json %>;
+  let infoWindow;
+  let infoWindowContent;
+  let marker;
 
-  shops.forEach(shop => {
+  <% @shops.each do |shop| %>
     // Create the marker
     marker = new google.maps.Marker({
-      position: { lat: shop.latitude, lng: shop.longitude },
+      position: { lat: <%= shop.latitude %>, lng: <%= shop.longitude %> },
       map: map,
     });
 
     // Create the info window content
-    const infoWindowContent = `<%= render "content_window" %>`;
+    infoWindowContent = `<%= render partial: "content_window", locals: { shop: shop } %>`;
 
     // Create the info window
-    const infoWindow = new google.maps.InfoWindow({
+    infoWindow = new google.maps.InfoWindow({
       content: infoWindowContent,
       maxWidth: 800,
     });
@@ -42,7 +44,7 @@ function initMap() {
       closeAllInfoWindows();
       infoWindow.open(map, marker);
     });
-  });
+  <% end %>
 }
 
 </script>
