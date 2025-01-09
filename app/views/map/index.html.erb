@@ -18,6 +18,9 @@ function initMap() {
     zoom: 16,
   });
 
+  const infoWindow;
+  const infoWindowContent;
+
   <% @shops.each do |shop| %>
     // Create the marker
     marker = new google.maps.Marker({
@@ -26,10 +29,10 @@ function initMap() {
     });
 
     // Create the info window content
-    const infoWindowContent = `<%= render "content_window" %>`;
+    infoWindowContent = `<%= render "content_window" %>`;
 
     // Create the info window
-    const infoWindow = new google.maps.InfoWindow({
+    infoWindow = new google.maps.InfoWindow({
       content: infoWindowContent,
       maxWidth: 800,
     });
