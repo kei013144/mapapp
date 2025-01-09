@@ -1,9 +1,7 @@
-<%= local_assigns[:shop] %>
-
-
-<%= image_tag("shop/1.jpg", class: "small-image") %>
+<%= shop.name %>
+<%= image_tag("shop/#{shop.id}.jpg", class: "small-image") %>
 <%= form_with(model: @shopreview, url: shopreview_path) do |form| %>
-  <%= form.hidden_field :shop_id, value: 1 %>
+  <%= form.hidden_field :shop_id, value: shop.id %>
   <%= form.text_area :comment, class: "w-full p-2 border border-gray-300 rounded-md", rows: 5 %>
   <%= form.submit "レビューを送信", class: "bg-blue-500 text-white font-bold py-2 px-4 rounded", data: {
               turbo_method: "post",
