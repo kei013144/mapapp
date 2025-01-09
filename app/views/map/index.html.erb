@@ -18,8 +18,9 @@ function initMap() {
     zoom: 16,
   });
 
-  const infoWindow;
-  const infoWindowContent;
+  let infoWindow;
+  let infoWindowContent;
+  let marker;
 
   <% @shops.each do |shop| %>
     // Create the marker
