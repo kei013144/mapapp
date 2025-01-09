@@ -1,3 +1,6 @@
+<%= shop.name %>
+
+
 <%= image_tag("shop/1.jpg", class: "small-image") %>
 <%= form_with(model: @shopreview, url: shopreview_path) do |form| %>
   <%= form.hidden_field :shop_id, value: 1 %>
