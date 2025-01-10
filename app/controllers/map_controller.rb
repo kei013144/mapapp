@@ -7,9 +7,9 @@ class MapController < ApplicationController
 
   private
 
-    def authenticate
-      unless logged_in?
-        redirect_to root_path
-      end
-    end
+  def authenticate
+    return if logged_in?
+
+    redirect_to root_path
+  end
 end
