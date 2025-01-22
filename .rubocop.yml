@@ -28,3 +28,20 @@ AllCops:
     - 'log/**/*'
     - 'tmp/**/*'
   NewCops: enable
+  SuggestExtensions: false
+
+# 日本語コメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# 未i18nのチェック
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+# 文字列のfreeze
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# ドキュメントのないclass,moduleを許可する
+Style/Documentation:
+  Enabled: false
