@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+<div
+  data-controller="notification"
+  data-notification-delay-value="2000"
+  class="transition transform duration-1000 hidden bg-opacity-50 bg-blue-500 text-white font-bold"
+  data-transition-enter-from="opacity-0 translate-x-6"
+  data-transition-enter-to="opacity-100 translate-x-0"
+  data-transition-leave-from="opacity-100 translate-x-0"
+  data-transition-leave-to="opacity-0 translate-x-6"
+>
+  <p><%= flash[:notice] %></p>
+
+  <button data-action="notification#hide">閉じる</button>
+</div>
+<% end %>
+
+<% if flash[:alert] %>
+<div
+  data-controller="notification"
+  data-notification-delay-value="2000"
+  class="transition transform duration-1000 hidden bg-opacity-50 bg-red-500 text-white font-bold"
+  data-transition-enter-from="opacity-0 translate-x-6"
+  data-transition-enter-to="opacity-100 translate-x-0"
+  data-transition-leave-from="opacity-100 translate-x-0"
+  data-transition-leave-to="opacity-0 translate-x-6"
+>
+  <p><%= flash[:alert] %></p>
+
+  <button data-action="notification#hide">閉じる</button>
+</div>
+<% end %>
