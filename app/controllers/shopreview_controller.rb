@@ -8,4 +8,17 @@ class ShopreviewController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def destroy
+    @shop_review = ShopReview.find(params['id'])
+    if @shop_review.user == current_user
+      if @shop_review.destroy!
+        redirect_to map_path, notice: 'レビューを削除しました'
+      else
+        redirect_to map_path, alert: 'レビュー削除に失敗しました'
+      end
+    else
+      redirect_to map_path, alert: 'ユーザーが一致しません'
+    end
+  end
 end
