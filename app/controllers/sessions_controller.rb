@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to map_path, notice: 'ログインに成功しました'
     else
-      flash.now[:alart] = 'Invalid email/password combination'
+      flash.now[:alert] = 'Invalid email/password combination'
       render 'new'
     end
   end
