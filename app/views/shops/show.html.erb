@@ -1,0 +1,40 @@
+<%= @shop.name %>
+<%= image_tag("shop/#{@shop.code}.jpg", class: "small-image") %>
+
+<div class = "py-2">
+  <h2>このお店のレビュー</h2>
+  <% if @shop.shop_reviews.any? %>
+    <ul>
+      <% @shop.shop_reviews.each do |review| %>
+        <li class="border border-black-900 flex items-start justify-start my-2">
+        <%= gravatar_for(review.user) %>
+        <div class = "mx-2">
+          <strong class="text-gray-900 font-medium">
+            <%= review.user.name %>
+          </strong>
+          <p class="text-gray-700">
+            <%= review.comment %>
+          </p>
+          <% if current_user == review.user %>
+            <p class="text-blue-700 py-2">
+            <%= link_to "投稿したレビュー削除", "/shopreview/#{review.id}", data: { turbo_method: :delete, turbo_confirm: "レビューを削除しますか?" } %>
+            </p>
+          <% end %>
+        </div>
+
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>まだレビューはありません。</p>
+  <% end %>
+</div>
+
+<%= form_with(model: @shopreview, url: shopreview_path, remote: true) do |form| %>
+  <%= form.hidden_field :shop_id, value: @shop.id %>
+  <%= form.text_area :comment, class: "w-full p-2 border border-gray-300 rounded-md", rows: 5 %>
+  <%= form.submit "レビューを送信", class: "bg-blue-500 text-white font-bold py-2 px-4 rounded", data: {
+              turbo_method: "post",
+              turbo_confirm: "レビューを送信しますか?"
+            } %>
+<% end %>

@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get '/logout',  to: 'sessions#destroy'
   get '/map', to: 'map#index'
   post '/shopreview', to: 'shopreview#create'
-  delete '/shopreview:id', to: 'shopreview#destroy'
+  delete '/shopreview/:id', to: 'shopreview#destroy'
+  get '/shops/:id', to: 'shops#show'
   resources :users
+  resources :shops
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
