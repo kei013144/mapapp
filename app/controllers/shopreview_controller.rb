@@ -11,7 +11,7 @@ class ShopreviewController < ApplicationController
 
   def destroy
     @shop_review = current_user.shop_reviews.find(params[:id])
-  
+
     if @shop_review.destroy
       redirect_to shop_path, notice: 'レビューを削除しました'
     else
