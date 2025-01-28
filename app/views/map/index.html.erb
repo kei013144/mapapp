@@ -35,7 +35,7 @@ function initMap() {
   
     let infoWindow<%= shop.id %> = new google.maps.InfoWindow({
       content: markerData<%= shop.id %>.infoWindowContent,
-      maxWidth: 800
+      maxWidth: 600
     });
   
     marker<%= shop.id %>.addListener('click', () => {

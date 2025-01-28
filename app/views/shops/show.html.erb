@@ -1,42 +1,39 @@
+<h1 class="text-xl font-bold">
 <%= @shop.name %>
+</h1>
+
 <%= image_tag("shop/#{@shop.code}.jpg", class: "small-image") %>
 
-<div class = "py-2">
-  <h2>このお店のレビュー</h2>
-  <% if @shop.shop_reviews.any? %>
-    <ul>
-      <% @shop_reviews.each do |review| %>
-        <li class="border border-black-900 flex items-start justify-start my-2">
-        <%= gravatar_for(review.user) %>
-        <div class = "mx-2">
-          <strong class="text-gray-900 font-medium">
-            <%= review.user.name %>
-          </strong>
-          <p class="text-gray-500">投稿日時: <%= review.created_at %> </p>
-          <p class="text-gray-700">
-            <%= review.comment %>
-          </p>
-          <% if current_user == review.user %>
-            <p class="text-blue-700 py-2">
-            <%= link_to "投稿したレビュー削除", "/shopreview/#{review.id}", data: { turbo_method: :delete, turbo_confirm: "レビューを削除しますか?" } %>
-            </p>
-          <% end %>
-        </div>
-
-        </li>
-      <% end %>
-    </ul>
-    <%= paginate @shop_reviews %>
-  <% else %>
-    <p>まだレビューはありません。</p>
-  <% end %>
-</div>
+  <div class="py-4">
+    <h2 class="text-2xl font-bold">このお店のレビュー</h2>
+    <% if @shop.shop_reviews.any? %>
+      <ul>
+        <% @shop_reviews.each do |review| %>
+          <li class="bg-white shadow-md rounded-md p-4 mb-4"> <div class="flex items-center">
+              <%= gravatar_for(review.user) %>
+              <div class="ml-4">
+                <h3 class="text-lg font-bold"><%= review.user.name %></h3>
+                <p class="text-sm text-gray-500">投稿時間: <%= review.created_at %></p>
+                <p class="text-gray-700"><%= review.comment %></p>
+                <% if current_user == review.user %>
+                  <p class="text-red-500 mt-2"> <%= link_to "投稿したレビュー削除", "/shopreview/#{review.id}", data: { turbo_method: :delete, turbo_confirm: "レビューを削除しますか?" } %>
+                  </p>
+                <% end %>
+              </div>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+      <%= paginate @shop_reviews %>
+    <% else %>
+      <p>まだレビューはありません。</p>
+    <% end %>
+  </div>
 
 <%= form_with(model: @shopreview, url: shopreview_path, remote: true) do |form| %>
-  <%= form.hidden_field :shop_id, value: @shop.id %>
-  <%= form.text_area :comment, class: "w-full p-2 border border-gray-300 rounded-md", rows: 5 %>
-  <%= form.submit "レビューを送信", class: "bg-blue-500 text-white font-bold py-2 px-4 rounded", data: {
-              turbo_method: "post",
-              turbo_confirm: "レビューを送信しますか?"
-            } %>
+  <div class="mb-4">
+    <%= form.hidden_field :shop_id, value: @shop.id %>
+    <%= form.text_area :comment, class: "w-full p-2 border border-gray-300 rounded-md", rows: 5, placeholder: "レビューを入力してください" %>
+  </div>
+  <%= form.submit "レビューを送信", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 <% end %>
