@@ -3,6 +3,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = Shop.find(params['id'])
+    @shop_reviews = @shop.shop_reviews.order(created_at: :desc).page(params[:page])
   end
 
   private
