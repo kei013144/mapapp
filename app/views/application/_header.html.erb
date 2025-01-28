@@ -1,6 +1,10 @@
 <header class="bg-blue-600 text-white opacity-90">
     <div class="container mx-auto px-4 grid grid-cols-2 items-center">
+    <% if logged_in? %>
+    <%= link_to "Mapapp", map_path, class: "text-3xl font-bold" %>
+    <% else %>
     <h1 class="text-3xl font-bold">Mapapp</h1>
+    <% end %>
     <nav class="md:flex justify-end space-x-4">
       <% if logged_in? %>
         <%= link_to "ログアウト", logout_path, data: {
