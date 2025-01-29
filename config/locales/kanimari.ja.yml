@@ -1,0 +1,17 @@
+ja:
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: '<div class="list-count">[<span class="list-count__all">%{total}</span>件中 %{first}〜%{last}件表示]</div>'
+      one_page:
+        display_entries:
+          one: '<div class="list-count">[<span class="list-count__all">%{count}</span>件中 1〜%{count}件表示]</div>'
+          other: '<div class="list-count">[<span class="list-count__all">%{count}</span>件中 1〜%{count}件表示]</div>'
+          zero: '<span class="text-notice">該当するデータが1件もありません。</span>'
+  views:
+    pagination:
+      first: "&lt;&lt; 最初のページ"
+      last: "最後のページ &gt;&gt;"
+      next: "次のページ &gt;"
+      previous: "&lt; 前のページ"
+      truncate: "&hellip;"

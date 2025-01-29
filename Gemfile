@@ -71,3 +71,5 @@ gem 'stringio', '~> 3.1'
 gem 'dotenv'
 
 gem 'kaminari'
+
+gem 'rails-i18n'
