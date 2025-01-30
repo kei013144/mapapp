@@ -1,9 +1,3 @@
-<% if flash[:alert] %>
-  <div class="text-red-600">
-    <%= flash[:alert] %>
-  </div>
-<% end %>
-
 <div class="form-container">
   <%= form_with(scope: :session, url: login_path, class: "w-full max-w-sm mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 opacity-90 ") do |f| %>
     <div class="mb-4">

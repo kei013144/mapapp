@@ -1,9 +1,0 @@
-ja:
-  date:
-    default: "%Y年%m月%d日"
-    short: "%m/%d"
-    long: "%Y年%m月%d日(%A)"
-  time:
-    default: "%H時%M分%S秒"
-    short: "%H:%M"
-    long: "%Y年%m月%d日(%A) %H時%M分%S秒"

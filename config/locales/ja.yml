@@ -1,4 +1,18 @@
 ja:
+  sessions:
+    new:
+      login: 'ログイン'
+      signup: '新規登録'
+      email: 'メールアドレス'
+      password: 'パスワード（6文字以上）'
+      email_placeholder: 'メールアドレスを入力してください'
+      password_placeholder: '********'
+  users:
+    new:
+      name: '名前'
+      email: 'メールアドレス'
+      password: '新しいパスワード'
+      confirmation: '新しいパスワード（確認）'
   helpers:
     page_entries_info:
       more_pages:
@@ -15,3 +29,11 @@ ja:
       next: "次 &gt;"
       previous: "&lt; 前"
       truncate: "&hellip;"
+  date:
+    default: "%Y年%m月%d日"
+    short: "%m/%d"
+    long: "%Y年%m月%d日(%A)"
+  time:
+    default: "%H時%M分%S秒"
+    short: "%H:%M"
+    long: "%Y年%m月%d日(%A) %H時%M分%S秒"
