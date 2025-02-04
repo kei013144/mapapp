@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       redirect_to map_path, notice: 'ログインに成功しました'
     else
       flash.now[:alert] = 'Invalid email/password combination'
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
 

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       log_in(@user)
       redirect_to map_path, notice: 'ユーザーを作成しました'
     else
-      render 'new'
+      render 'new', status: :unprocessable_entity
     end
   end
 
