@@ -45,3 +45,6 @@ Style/FrozenStringLiteralComment:
 # ドキュメントのないclass,moduleを許可する
 Style/Documentation:
   Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
