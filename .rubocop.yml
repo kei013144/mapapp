@@ -12,6 +12,7 @@ inherit_from: .rubocop_todo.yml
 # See https://docs.rubocop.org/rubocop/configuration
 require:
   - rubocop-rails
+  - rubocop-rspec
 
 AllCops:
   Exclude:
