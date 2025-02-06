@@ -58,3 +58,6 @@ Metrics/BlockLength:
 
 StringLiterals:
   EnforcedStyle: single_quotes
+
+RSpec/MultipleExpectations:
+  Max: 3
