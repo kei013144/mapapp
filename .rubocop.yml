@@ -48,3 +48,9 @@ Style/Documentation:
 
 Bundler/OrderedGems:
   Enabled: false
+
+Metrics/BlockLength:
+  Max: 30 # 許容される行数を30行に設定
+  Exclude: # 特定のファイルをチェック対象から除外
+    - 'spec/**/*'
+    - 'test/**/*'
