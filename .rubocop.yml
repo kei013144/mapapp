@@ -54,3 +54,6 @@ Metrics/BlockLength:
   Exclude: # 特定のファイルをチェック対象から除外
     - 'spec/**/*'
     - 'test/**/*'
+
+StringLiterals:
+  EnforcedStyle: single_quotes
