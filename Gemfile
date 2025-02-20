@@ -67,7 +67,7 @@ group :test do
   gem 'factory_bot_rails'
 end
 
-gem 'tailwindcss-rails', '~> 3.0'
+gem 'tailwindcss-rails', '~> 4.1'
 
 gem 'stringio', '~> 3.1'
 
