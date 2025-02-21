@@ -22,8 +22,8 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    unless logged_in?
-      redirect_to root_path, notice: "このページにアクセスするにはログインが必要です"
-    end
+    return if logged_in?
+
+    redirect_to root_path, notice: 'このページにアクセスするにはログインが必要です'
   end
 end
